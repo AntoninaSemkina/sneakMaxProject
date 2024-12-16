@@ -1,42 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 1920px;
   text-align: center;
+  height: 100%;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+@font-face {
+  font-family: "Intro Bold";
+  src: url("./assets/fonts/Intro-Bold.eot");
+  src: local("Intro-Bold"),
+    url("./assets/fonts/Intro-Bold.eot") format("embedded-opentype"),
+    url("./assets/fonts/Intro-Bold.woff2") format("woff2"),
+    url("./assets/fonts/Intro-Bold.woff") format("woff"),
+    url("./assets/fonts/Intro-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+@font-face {
+  font-family: "Intro Regular";
+  src: url("./assets/fonts/Intro-Regular.eot");
+  src: local("Intro-Regular"),
+    url("./assets/fonts/Intro-Regular.eot?#iefix") format("embedded-opentype"),
+    url("./assets/fonts/Intro-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Intro-Regular.woff") format("woff"),
+    url("./assets/fonts/Intro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+@font-face {
+  font-family: "Intro Book";
+  src: url("./assets/fonts/Intro-Book.eot");
+  src: local("Intro-Book"),
+    url("./assets/fonts/Intro-Book.eot?#iefix") format("embedded-opentype"),
+    url("./assets/fonts/Intro-Book.woff2") format("woff2"),
+    url("./assets/fonts/Intro-Book.woff") format("woff"),
+    url("./assets/fonts/Intro-Book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  font-family: "Intro Regular", sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h1 {
+  font-family: "Intro Regular", sans-serif;
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: 400;
 }
-
-.card {
-  padding: 2em;
+h2 {
+  font-family: "Intro Bold", sans-serif;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 700;
 }
-
-.read-the-docs {
-  color: #888;
+h3 {
+  font-family: "Intro Book", sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 400;
+}
+p {
+  font-family: "Intro Book", sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 400;
+}
+.price {
+  font-family: "Intro Regular", sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
 }

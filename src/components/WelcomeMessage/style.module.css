@@ -1,0 +1,47 @@
+@import url("../../var.css");
+.fullwidth {
+  position: relative;
+  width: 100%;
+  background-color: var(--dark-bg-color);
+  padding: 20px;
+}
+.bgImage svg {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 980px;
+  height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+.container {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  margin: 100px auto;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 1;
+}
+.container h1,
+.container p {
+  width: 100%;
+  color: var(--light-text-color);
+}
+
+.mainBlock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: left;
+  gap: 40px;
+}
+
+/* @media screen and (max-width: 390px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} */

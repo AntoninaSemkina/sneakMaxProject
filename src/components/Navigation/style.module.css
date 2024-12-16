@@ -1,0 +1,27 @@
+@import url("../../var.css");
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 0px;
+  padding: 5px;
+  font-family: "Intro Book", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 400;
+  border: 1px solid var(--border-line);
+  color: var(--light-text-color);
+  cursor: pointer;
+  background-color: transparent;
+}
+.btn svg {
+  width: 20px;
+  height: 18px;
+}

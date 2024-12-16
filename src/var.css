@@ -1,0 +1,22 @@
+:root {
+  --light-bg-color: #fff4ee;
+  --dark-bg-color: #484283;
+  --grey-bg-color: #444b58;
+  --light-text-color: #fff4ee;
+  --middle-text-color: #b2b5bb;
+  --dark-text-color: #444b58;
+  --icon-bg-color: #0e5a4c;
+  --button-red-color: #f14f4f;
+  --button-redHover-color: #cc4949;
+  --button-redClick-color: #8c2828;
+  --check-box-color: #dbbba9;
+  --border-radius-grey: #b2b5bb;
+  --border-radius-red: #f14f4f;
+  --button-grey-color: #444b58;
+  --button-greyHover-color: #31343c;
+  --button-white-color: #c4c4c4;
+  --button-whiteHover-color: #444b58;
+}
+/* [data-theme="light"] {
+
+} */
