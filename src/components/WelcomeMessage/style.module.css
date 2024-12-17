@@ -9,7 +9,7 @@
   position: absolute;
   top: 50px;
   right: 50px;
-  width: 980px;
+  width: 80%;
   height: 200px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -40,8 +40,8 @@
   gap: 40px;
 }
 
-/* @media screen and (max-width: 390px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);
+/* @media screen and (max-width: 1200px) {
+  .bgImage svg {
+    width: 900px;
   }
 } */

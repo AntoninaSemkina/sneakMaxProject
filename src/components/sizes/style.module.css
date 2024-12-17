@@ -1,0 +1,27 @@
+@import url("../../var.css");
+.fullwidth {
+  position: relative;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.mainBlock {
+  display: grid;
+  width: 200px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* @media screen and (max-width: 390px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} */

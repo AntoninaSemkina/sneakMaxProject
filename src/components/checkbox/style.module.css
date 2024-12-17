@@ -1,0 +1,52 @@
+@import url("../../var.css");
+
+label {
+  display: flex; /* Используем flex для центрирования */
+  align-items: center; /* Центрирование по высоте */
+  gap: 8px; /* Отступ между чекбоксом и текстом */
+  cursor: pointer;
+  font-size: 16px; /* Размер шрифта текста */
+  color: var(--text-color, black); /* Цвет текста */
+}
+
+p {
+  color: var(--dark-text-color);
+  line-height: 24px; /* Совпадает с высотой чекбокса */
+}
+
+.customCheckbox {
+  /* Убираем стандартный вид чекбокса */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Базовый стиль чекбокса */
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--check-box-color); /* Цвет рамки */
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  background-color: white; /* Фон остается белым */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Галочка появляется при активном чекбоксе */
+.customCheckbox:checked {
+  background-color: white; /* Фон остается белым */
+  border-color: var(--check-box-color); /* Цвет рамки при checked */
+  position: relative;
+}
+
+/* Галочка через псевдоэлемент */
+.customCheckbox:checked::before {
+  content: "";
+  position: absolute;
+  top: 3px; /* Положение галочки */
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--check-box-color); /* Галочка цвета рамки */
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

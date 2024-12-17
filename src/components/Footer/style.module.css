@@ -1,7 +1,7 @@
 @import url("../../var.css");
 .fullwidth {
   width: 100%;
-  background-color: var(--dark-bg-color);
+  background-color: var(--grey-bg-color);
 }
 .container {
   max-width: 1200px;
@@ -12,7 +12,6 @@
   min-height: 80px;
   top: 0;
   margin: auto;
-  background-color: var(--grey-bg-color);
 }
 .content {
   display: flex;

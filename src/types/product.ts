@@ -1,14 +1,14 @@
-export type sneakers = {
+export type product = {
   id: number;
-  vendoreCode: string;
-  inStock: string;
+  vendorCode: string;
+  inStock: number;
   title: string;
   description: string;
   imgUrl: string;
-  stars: string;
-  sizes: string[];
-  price: string;
-  oldPrice: string;
+  stars: number;
+  sizes: number[];
+  price: number;
+  oldPrice: number;
   gender: string;
   color: string;
   compound: string;

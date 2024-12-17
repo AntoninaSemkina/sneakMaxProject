@@ -1,0 +1,58 @@
+@import url("../../var.css");
+.fullwidth {
+  width: 30%;
+  padding: 20px;
+  background-color: var(--light-bg-color);
+}
+.container {
+  width: 280px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 1;
+}
+.container h1 {
+  width: 100%;
+  color: var(--dark-text-color);
+}
+
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  gap: 20px;
+}
+.sizegrid {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column; /* Строим элементы друг под другом */
+  gap: 10px; /* Отступы между текстом и блоком размеров */
+}
+.sizegrid p {
+  margin: 0;
+  align-items: l;
+}
+.gender div,
+.price div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sizegrid div {
+  display: flex;
+  justify-content: center; /* Центрирование содержимого по горизонтали */
+  align-items: center; /* Центрирование содержимого по вертикали */
+  background-color: var(--light-bg-color); /* Для наглядности */
+
+  display: grid; /* Создаем сетку для элементов Size */
+  grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+  justify-content: center; /* Центрируем элементы по горизонтали */
+}
+/* @media screen and (max-width: 1200px) {
+  .bgImage svg {
+    width: 900px;
+  }
+} */
