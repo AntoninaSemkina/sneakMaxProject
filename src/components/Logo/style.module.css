@@ -1,4 +1,8 @@
 @import url("../../var.css");
+.link {
+  text-decoration: none;
+}
+
 .logo {
   color: var(--light-text-color);
   margin-top: 10px;

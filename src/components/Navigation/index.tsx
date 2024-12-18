@@ -1,13 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { MAIN_PAGE_ROUTE, TEAM_PAGE_ROUTE } from "../../utils/ consts";
+import {
+  CATALOG_PAGE_ROUTE,
+  MAIN_PAGE_ROUTE,
+  TEAM_PAGE_ROUTE,
+} from "../../utils/ consts";
 import style from "./style.module.css";
 
 const Navigation: React.FC = () => {
   const navigate = useNavigate();
   return (
     <nav className={style.container}>
-      <button className={style.btn} onClick={() => navigate(MAIN_PAGE_ROUTE)}>
+      <button
+        className={style.btn}
+        onClick={() => navigate(CATALOG_PAGE_ROUTE)}
+      >
         Каталог
       </button>
       <button className={style.btn} onClick={() => navigate(MAIN_PAGE_ROUTE)}>
