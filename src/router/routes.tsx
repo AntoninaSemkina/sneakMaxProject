@@ -1,4 +1,5 @@
 import {
+  ABOUTCOMPANY_PAGE_ROUTE,
   CATALOG_PAGE_ROUTE,
   MAIN_PAGE_ROUTE,
   TEAM_PAGE_ROUTE,
@@ -6,6 +7,7 @@ import {
 import MainPage from "../pages/MainPage";
 import TeamPage from "../pages/Team";
 import CatalogPage from "../pages/CatalogPage";
+import AboutCompanyPage from "../pages/AboutCompany";
 
 export const publicRoutes = [
   {
@@ -19,5 +21,9 @@ export const publicRoutes = [
   {
     path: CATALOG_PAGE_ROUTE,
     Component: CatalogPage,
+  },
+  {
+    path: ABOUTCOMPANY_PAGE_ROUTE,
+    Component: AboutCompanyPage,
   },
 ];

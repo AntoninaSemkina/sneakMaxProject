@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
+  ABOUTCOMPANY_PAGE_ROUTE,
   CATALOG_PAGE_ROUTE,
   MAIN_PAGE_ROUTE,
   TEAM_PAGE_ROUTE,
@@ -17,7 +18,10 @@ const Navigation: React.FC = () => {
       >
         Каталог
       </button>
-      <button className={style.btn} onClick={() => navigate(MAIN_PAGE_ROUTE)}>
+      <button
+        className={style.btn}
+        onClick={() => navigate(ABOUTCOMPANY_PAGE_ROUTE)}
+      >
         О нас
       </button>
       <button className={style.btn} onClick={() => navigate(MAIN_PAGE_ROUTE)}>
