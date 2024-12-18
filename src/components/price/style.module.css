@@ -1,0 +1,41 @@
+@import url("../../var.css");
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 50px;
+  border-radius: 4px 4px 0px 0px;
+  border-left: 1px solid var(--border-radius-grey);
+  border-top: 1px solid var(--border-radius-grey);
+  border-right: 1px solid var(--border-radius-grey);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.minPrice,
+.maxPrice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  text-align: center;
+  border-right: 1px solid var(--border-radius-grey);
+}
+.maxPrice {
+  border-right: none;
+}
+/* @media screen and (max-width: 390px) {
+  .card {
+    height: 150px;
+    padding: 0.8rem;
+  }
+  .card h4 {
+    font-size: 0.8rem;
+  }
+  .card p {
+    font-size: 0.4rem;
+  }
+  .card img {
+    height: 50px;
+  }
+} */

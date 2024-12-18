@@ -2,26 +2,23 @@
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  max-height: 350px;
+  justify-content: center;
+  align-items: center;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn {
   color: var(--dark-text-color);
-  text-align: left;
   width: 80px;
   height: 60px;
   background-color: transparent;
   font-size: 16px;
   border: 0.3px solid var(--check-box-color);
-  background-color: var(--light-bg-color);
-  text-align: center;
   cursor: pointer;
   box-sizing: border-box;
 }
-
+.card.selected {
+  background-color: var(--button-grey-color);
+  color: var(--light-text-color);
+  border-color: var(--button-grey-color);
+}
 /* @media screen and (max-width: 390px) {
   .card {
     height: 150px;

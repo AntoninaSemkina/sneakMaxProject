@@ -1,25 +1,24 @@
-import { useState } from "react";
+import React from "react";
 import style from "./style.module.css";
 
 interface CheckBoxProps {
   text: string;
-  backgroundColor?: string;
-  textColor?: string;
+  isChecked: boolean;
+  onChange: () => void;
 }
-const CustomCheckbox: React.FC<CheckBoxProps> = ({ text }) => {
-  const [isChecked, setIsChecked] = useState(false);
 
-  const handleChange = () => {
-    setIsChecked(!isChecked);
-  };
-
+const CustomCheckbox: React.FC<CheckBoxProps> = ({
+  text,
+  isChecked,
+  onChange,
+}) => {
   return (
     <label>
       <input
         type="checkbox"
         className={style.customCheckbox}
         checked={isChecked}
-        onChange={handleChange}
+        onChange={onChange}
       />
       <p>{text}</p>
     </label>

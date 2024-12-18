@@ -4,13 +4,18 @@ import { size } from "../../types/size";
 
 type Props = {
   data: size;
+  isSelected: boolean;
+  onSelect: () => void;
 };
 
-const Size: FC<Props> = ({ data }) => {
+const Size: FC<Props> = ({ data, isSelected, onSelect }) => {
   return (
-    <div className={style.card}>
-      <button className={style.btn}>{data.size}</button>
-    </div>
+    <button
+      className={`${style.card} ${isSelected ? style.selected : ""}`}
+      onClick={onSelect}
+    >
+      {data.size}
+    </button>
   );
 };
 
