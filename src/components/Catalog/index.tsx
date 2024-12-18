@@ -18,7 +18,7 @@ const Catalog: FC = () => {
     size: [],
     price: {
       min: 0,
-      max: 0,
+      max: Infinity,
     },
   });
 
@@ -32,7 +32,7 @@ const Catalog: FC = () => {
       size: [],
       price: {
         min: 0,
-        max: 0,
+        max: Infinity,
       },
     });
   };
@@ -45,7 +45,7 @@ const Catalog: FC = () => {
         </div>
         <div className={style.mainBlock}>
           <Filter onApplyFilters={applyFilters} onResetFilters={resetFilters} />
-          <Products filters={filters} />
+          <Products filters={filters} onResetFilters={resetFilters} />
         </div>
       </div>
     </div>

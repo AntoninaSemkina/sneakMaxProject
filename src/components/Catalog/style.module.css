@@ -19,7 +19,7 @@
   max-width: 1200px;
   width: 100%;
   display: flex;
-  margin: 100px auto;
+  margin: auto;
   flex-direction: column;
   justify-content: space-around;
   z-index: 1;
@@ -28,7 +28,11 @@
   width: 100%;
   color: var(--dark-text-color);
 }
-
+.titleBlock {
+  width: 100%;
+  text-align: left;
+  margin: 40px 0;
+}
 .mainBlock {
   position: relative;
   display: flex;

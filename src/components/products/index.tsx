@@ -1,71 +1,5 @@
-// import { FC, useState } from "react";
-// import productData from "../../data/products.json";
-// import { product } from "../../types/product";
-// import style from "./style.module.css";
-// import Product from "../product";
-// import Button from "../Button";
-
-// interface ProductsProps {
-//   filters: {
-//     gender: string[];
-//     size: number[];
-//     price: {
-//       min: number;
-//       max: number;
-//     };
-//   };
-// }
-
-// const Products: FC<ProductsProps> = ({ filters }) => {
-//   const [visibleCount, setVisibleCount] = useState(6);
-
-//   const loadMore = () => {
-//     setVisibleCount((prevCount) => prevCount + 6);
-//   };
-//   const { gender, size, price } = filters;
-
-//   const filteredProducts = productData.filter((product: product) => {
-//     const matchesGender =
-//       gender.length === 0 || gender.includes(product.gender);
-
-//     const matchesSize =
-//       size.length === 0 || size.some((s) => product.sizes.includes(s));
-
-//     const matchesPrice =
-//       product.price >= price.min && product.price <= price.max;
-
-//     return matchesGender && matchesSize && matchesPrice;
-//   });
-
-//   return (
-//     <div className={style.fullwidth}>
-//       <div className={style.container}>
-//         <div className={style.mainBlock}>
-//           {filteredProducts.slice(0, visibleCount).map((member: product) => (
-//             <Product key={member.id} data={member} />
-//           ))}
-//         </div>
-//         <div className={style.btnBlock}>
-//           {visibleCount < filteredProducts.length && (
-//             <Button
-//               text="Показать еще"
-//               backgroundColor="var(--button-red-color)"
-//               textColor="var(--light-text-color)"
-//               onClick={loadMore}
-//               width="200px"
-//             />
-//           )}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Products;
-
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import productData from "../../data/products.json";
-import { product } from "../../types/product";
 import style from "./style.module.css";
 import Product from "../product";
 import Button from "../Button";
@@ -79,16 +13,26 @@ interface ProductsProps {
       max: number;
     };
   };
+  onResetFilters: () => void;
 }
 
-const Products: FC<ProductsProps> = ({ filters }) => {
+const Products: FC<ProductsProps> = ({ filters, onResetFilters }) => {
   const [visibleCount, setVisibleCount] = useState(6);
+
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [onResetFilters]);
 
   const loadMore = () => {
     setVisibleCount((prevCount) => prevCount + 6);
   };
-  // const { gender, size, price } = filters;
 
+  const isFilterApplied =
+    filters.gender.length > 0 ||
+    filters.size.length > 0 ||
+    (filters.price.min > 0 && filters.price.max < Infinity);
+
+  // Фильтруем товары
   const filteredProducts = productData.filter((product) => {
     const matchesGender =
       filters.gender.length === 0 || filters.gender.includes(product.gender);
@@ -101,15 +45,17 @@ const Products: FC<ProductsProps> = ({ filters }) => {
     return matchesGender && matchesSize && matchesPrice;
   });
 
+  // Если фильтры не применены, показываем весь каталог
+  const productsToDisplay = isFilterApplied
+    ? filteredProducts.slice(0, visibleCount)
+    : productData.slice(0, visibleCount);
+
   return (
     <div className={style.fullwidth}>
       <div className={style.container}>
         <div className={style.mainBlock}>
-          {/* {filteredProducts.map((product) => (
-            <Product key={product.id} data={product} />
-          ))} */}
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
+          {productsToDisplay.length > 0 ? (
+            productsToDisplay.map((product) => (
               <Product key={product.id} data={product} />
             ))
           ) : (
@@ -117,7 +63,10 @@ const Products: FC<ProductsProps> = ({ filters }) => {
           )}
         </div>
         <div className={style.btnBlock}>
-          {visibleCount < filteredProducts.length && (
+          {visibleCount <
+            (isFilterApplied
+              ? filteredProducts.length
+              : productData.length) && (
             <Button
               text="Показать еще"
               backgroundColor="var(--button-red-color)"

@@ -5,7 +5,7 @@
   justify-content: space-between;
   width: 100%;
   max-height: 350px;
-  padding: 10px;
+  padding: 0 10px;
   gap: 10px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -13,6 +13,7 @@
   width: 100%;
   max-height: 300px;
   overflow: hidden;
+  border-radius: 2px;
 }
 .image img {
   width: 100%;

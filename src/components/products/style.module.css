@@ -20,6 +20,7 @@
   margin: auto;
   justify-content: space-around;
   z-index: 1;
+  gap: 40px;
 }
 .container h1 {
   text-align: left;
@@ -30,6 +31,7 @@
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
   margin: auto;
+  gap: 10px;
 }
 .btnBlock {
   display: flex;

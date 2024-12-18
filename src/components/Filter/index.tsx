@@ -3,7 +3,6 @@ import style from "./style.module.css";
 import CheckboxButton from "../checkbox";
 import Button from "../Button";
 import Sizes from "../sizes";
-import Price from "../price";
 import PriceSlider from "../PriceSlider";
 import productData from "../../data/products.json";
 
@@ -66,7 +65,6 @@ const Filter: FC<FilterProps> = ({ onApplyFilters, onResetFilters }) => {
           <h3>Подбор по параметрам</h3>
           <div className={style.price}>
             <p>Цена, руб</p>
-            <Price />
             <PriceSlider
               minPrice={globalMinPrice}
               maxPrice={globalMaxPrice}

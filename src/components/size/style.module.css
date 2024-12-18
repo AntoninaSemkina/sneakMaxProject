@@ -17,7 +17,7 @@
 .card.selected {
   background-color: var(--button-grey-color);
   color: var(--light-text-color);
-  border-color: var(--button-grey-color);
+  border-color: var(--check-box-color);
 }
 /* @media screen and (max-width: 390px) {
   .card {

@@ -1,7 +1,6 @@
 @import url("../../var.css");
 .fullwidth {
   width: 30%;
-  background-color: var(--light-bg-color);
 }
 .container {
   width: 280px;
@@ -10,6 +9,8 @@
   justify-content: space-around;
   z-index: 1;
   padding-top: 20px;
+  background-color: var(--light-bg-color);
+  border-radius: 2px;
 }
 .container h3 {
   width: 100%;
@@ -28,16 +29,13 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column; /* Строим элементы друг под другом */
-  gap: 10px; /* Отступы между текстом и блоком размеров */
 }
 .sizegrid p {
   margin: 0;
   text-align: left; /* Уточняем выравнивание текста */
   width: 100%; /* Убираем потенциальное сокращение ширины */
 }
-.gender {
-  gap: 10px;
-}
+
 .gender div {
   display: flex;
   flex-direction: row;

@@ -58,7 +58,9 @@ const Teammates: FC = () => {
         </svg>
       </div>
       <div className={style.container}>
-        <h1>Наша команда</h1>
+        <div className={style.titleBlock}>
+          <h1>Наша команда</h1>
+        </div>
         <div className={style.mainBlock}>
           {teamData.map((member: teammate) => (
             <Teammate key={member.id} data={member} />

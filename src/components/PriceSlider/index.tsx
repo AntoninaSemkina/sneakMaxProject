@@ -66,6 +66,14 @@ const PriceSlider: FC<PriceSliderProps> = ({
 
   return (
     <div className={style.container}>
+      <div className={style.card}>
+        <div className={style.minPrice}>
+          <p>{currentMinPrice}</p>
+        </div>
+        <div className={style.maxPrice}>
+          <p>{currentMaxPrice}</p>
+        </div>
+      </div>
       <div ref={sliderRef} className={style.priceSlider}>
         {/* Цветовая зона между ползунками */}
         <div
@@ -89,10 +97,6 @@ const PriceSlider: FC<PriceSliderProps> = ({
           onMouseDown={(e) => attachMoveEvents(e, false)}
           onTouchStart={(e) => attachMoveEvents(e, false)}
         />
-      </div>
-      <div className={style.priceValues}>
-        <span>{currentMinPrice} руб.</span> -{" "}
-        <span>{currentMaxPrice} руб.</span>
       </div>
     </div>
   );
