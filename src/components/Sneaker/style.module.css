@@ -2,7 +2,6 @@
 .content {
   width: 100%;
   margin: auto;
-  background-color: red;
 }
 .card {
   display: flex;
@@ -87,7 +86,7 @@
 }
 .card1Block1 img {
   width: 100%;
-  height: 600px;
+  max-height: 600px;
   object-fit: cover;
   display: block;
   transform: scaleX(-1);
@@ -120,17 +119,22 @@
 .card1Block2_el4_sizes {
   width: 70px;
   height: 32px;
-  border-radius: 2px;
+  border-radius: 5px;
   border: 1px solid var(--grey-bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 14px;
   color: var(--dark-text-color);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
-.card1Block2_el4_sizes:hover {
+.card1Block2_el4_sizes.selected {
   background-color: var(--grey-bg-color);
   color: white;
+  border: 2px solid var(--grey-bg-color);
 }
 .card2Block1,
 .card2Block2 {

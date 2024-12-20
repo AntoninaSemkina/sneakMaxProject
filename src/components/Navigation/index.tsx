@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ABOUTCOMPANY_PAGE_ROUTE,
@@ -7,9 +8,16 @@ import {
   TEAM_PAGE_ROUTE,
 } from "../../utils/ consts";
 import style from "./style.module.css";
+import ModalBasket from "../ModalBasket";
 
 const Navigation: React.FC = () => {
   const navigate = useNavigate();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+
   return (
     <nav className={style.container}>
       <button
@@ -36,7 +44,7 @@ const Navigation: React.FC = () => {
       <button className={style.btn} onClick={() => navigate(MAIN_PAGE_ROUTE)}>
         Контакты
       </button>
-      <button className={style.btn} onClick={() => navigate(MAIN_PAGE_ROUTE)}>
+      <button onClick={handleOpenModal} className={style.btn}>
         Корзина{" "}
         <svg
           width="20"
@@ -51,6 +59,13 @@ const Navigation: React.FC = () => {
           />
         </svg>
       </button>
+      {isModalOpen && (
+        <ModalBasket
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          // data={data}
+        />
+      )}
     </nav>
   );
 };

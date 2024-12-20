@@ -7,13 +7,15 @@ import StarsRepeater from "../StarsRepeater";
 type SneakerProps = {
   data: product;
   count?: number;
+  selectedSize?: number | null;
+  onSelect?: (size: number) => void;
 };
 
 const formatPrice = (price: number): string => {
   return new Intl.NumberFormat("ru-RU").format(price);
 };
 
-const Sneaker: FC<SneakerProps> = ({ data }) => {
+const Sneaker: FC<SneakerProps> = ({ data, selectedSize, onSelect }) => {
   const MySvg = (
     <svg
       width="16"
@@ -49,10 +51,16 @@ const Sneaker: FC<SneakerProps> = ({ data }) => {
             <div className={style.card1Block2_el4}>
               <p>Выберите размер</p>
               <div className={style.card1Block2_el4}>
-                {data.sizes.map((size, index) => (
-                  <div key={index} className={style.card1Block2_el4_sizes}>
+                {data.sizes.map((size) => (
+                  <button
+                    key={size}
+                    className={`${style.card1Block2_el4_sizes} ${
+                      selectedSize === size ? style.selected : ""
+                    }`}
+                    onClick={() => onSelect?.(size)}
+                  >
                     {size}
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
