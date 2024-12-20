@@ -23,40 +23,45 @@
   background-repeat: no-repeat;
   z-index: 1;
 }
+.container {
+  position: relative;
+  max-width: 1200px;
+  height: 100%;
+  display: flex;
+  margin: auto;
+  justify-content: flex-start;
+  z-index: 2;
+}
 .bgImage2 {
   position: absolute;
   top: 0;
   right: 0;
-  width: 1200px; /* Устанавливаем ширину в 100% экрана */
   height: auto;
   z-index: 1;
+  align-items: flex-end;
 }
 .bgImage2 svg {
   position: absolute;
   top: 0;
   right: 0;
   width: 680px;
-  height: 580px;
+  height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 1;
+  object-fit: cover;
 }
-.container {
-  max-width: 1200px;
-  height: 600px;
-  display: flex;
-  margin: auto;
-  justify-content: flex-start;
-  z-index: 1;
-}
+
 .mainBlock {
   display: flex;
-  width: 50%;
+  width: 400px;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
   text-align: left;
   align-items: flex-start;
+  z-index: 1;
+  margin: 0 70px;
 }
 .mainBlock p,
 .mainBlock h1,

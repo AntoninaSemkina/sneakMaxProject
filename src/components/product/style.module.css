@@ -1,5 +1,6 @@
 @import url("../../var.css");
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8,8 +9,10 @@
   padding: 0 10px;
   gap: 10px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 .image {
+  position: relative;
   width: 100%;
   max-height: 300px;
   overflow: hidden;
@@ -20,7 +23,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: opacity 0.3s ease;
   transform: scaleX(-1);
+}
+.image:hover img {
+  opacity: 0.3;
 }
 .card h3 {
   color: var(--dark-text-color);
@@ -32,11 +39,11 @@
   text-align: left;
   font-size: 20px;
 }
-.card:hover {
-  border-radius: 10px;
+.image:hover {
+  border-radius: 2px;
   background-color: rgba(240, 240, 240, 0.5);
   border-radius: 1rem;
-  border: 1px solid var(--btn-red);
+  /* border: 1px solid red; */
 }
 
 .image,
@@ -44,6 +51,45 @@
 .card h4 {
   background-color: transparent; /* Убираем фон у дочерних элементов */
 }
+
+.buttons {
+  position: absolute;
+  top: 50%; /* Центрируем по высоте */
+  left: 50%; /* Центрируем по ширине */
+  transform: translate(-50%, -50%); /* Сдвигаем, чтобы центр совпадал */
+  display: flex;
+  gap: 20px; /* Расстояние между кнопками */
+  opacity: 0; /* Кнопки скрыты по умолчанию */
+  transition: opacity 0.3s ease; /* Анимация появления */
+}
+
+.image:hover .buttons {
+  opacity: 1; /* Показываем кнопки при наведении */
+}
+
+.link,
+.addToCart {
+  background-color: var(--button-grey-color); /* Серый цвет */
+  color: white;
+  border: none;
+  border-radius: 50%; /* Кнопки круглые */
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link:hover,
+.addToCart:hover {
+  background-color: var(--button-greyHover-color); /* Темнее при наведении */
+}
+
 /* @media screen and (max-width: 390px) {
   .card {
     height: 150px;
