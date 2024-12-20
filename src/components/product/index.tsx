@@ -1,20 +1,24 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import style from "./style.module.css";
 import { product } from "../../types/product";
-import { Link } from "react-router";
+import ModalSneaker from "../ModalSneaker";
 
 type Props = {
   data: product;
 };
 
 const Product: FC<Props> = ({ data }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
   return (
     <div className={style.card}>
       <div className={style.image}>
         <img src={data.imgUrl} alt="sneakers" />
         <div className={style.buttons}>
           {/* Левая кнопка: ссылка на страницу товара */}
-          <Link to={`/sneaker/${data.id}`} className={style.link}>
+          <button onClick={handleOpenModal} className={style.link}>
             <svg
               width="30"
               height="30"
@@ -41,7 +45,7 @@ const Product: FC<Props> = ({ data }) => {
                 stroke-linejoin="round"
               />
             </svg>
-          </Link>
+          </button>
           {/* Правая кнопка: добавление в корзину */}
           <button className={`${style.button} ${style.addToCart}`}>
             <svg
@@ -61,6 +65,13 @@ const Product: FC<Props> = ({ data }) => {
       </div>
       <h3>{data.title}</h3>
       <p>{data.price}</p>
+      {isModalOpen && (
+        <ModalSneaker
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          data={data}
+        />
+      )}
     </div>
   );
 };

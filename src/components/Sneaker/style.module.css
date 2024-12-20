@@ -10,8 +10,8 @@
   justify-content: space-between;
   max-width: 1200px;
   margin: auto;
-  padding: 40px;
-  gap: 40px;
+  padding: 20px;
+  gap: 20px;
   background-color: white;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -137,10 +137,16 @@
   display: flex;
   flex-direction: column;
   width: 50%;
+  font-family: "Intro Book", sans-serif;
 }
 
-.card2Block1 p {
-  width: 80%;
+.card2Block1 p,
+.card2Block2 p {
+  font-size: 16px;
+}
+.card2Block1 h3,
+.card2Block2 h3 {
+  font-size: 24px;
 }
 
 .svg {
