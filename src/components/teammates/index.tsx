@@ -1,10 +1,46 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import Teammate from "../../components/teammate";
-import teamData from "../../data/team.json";
 import { teammate } from "../../types/teammate";
 import style from "./style.module.css";
 
 const Teammates: FC = () => {
+  const [teamData, setTeamData] = useState<teammate[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchTeamData = async () => {
+      try {
+        const response = await fetch(
+          "https://c6de376cf2e227cc.mokky.dev/teammate"
+        );
+        if (!response.ok) {
+          throw new Error("Ошибка загрузки данных");
+        }
+        const data: teammate[] = await response.json();
+        setTeamData(data);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Произошла неизвестная ошибка");
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTeamData();
+  }, []);
+
+  if (isLoading) {
+    return <p>Загрузка...</p>;
+  }
+
+  if (error) {
+    return <p>Ошибка: {error}</p>;
+  }
+
   return (
     <div className={style.fullwidth}>
       <div className={style.bgImage}>
@@ -15,7 +51,7 @@ const Teammates: FC = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g clip-path="url(#clip0_105_0)">
+          <g clipPath="url(#clip0_105_0)">
             <circle
               cx="343"
               cy="343"
@@ -24,14 +60,14 @@ const Teammates: FC = () => {
               fill="#F14F4F"
             />
           </g>
-          <g clip-path="url(#clip1_105_0)">
+          <g clipPath="url(#clip1_105_0)">
             <circle
               cx="439"
               cy="-14"
               r="321.5"
               transform="rotate(90 439 -14)"
               stroke="white"
-              stroke-opacity="0.5"
+              strokeOpacity="0.5"
             />
             <circle
               cx="574.5"
@@ -39,7 +75,7 @@ const Teammates: FC = () => {
               r="148"
               transform="rotate(90 574.5 401.5)"
               stroke="white"
-              stroke-opacity="0.5"
+              strokeOpacity="0.5"
             />
           </g>
           <defs>
@@ -62,7 +98,7 @@ const Teammates: FC = () => {
           <h1>Наша команда</h1>
         </div>
         <div className={style.mainBlock}>
-          {teamData.map((member: teammate) => (
+          {teamData.map((member) => (
             <Teammate key={member.id} data={member} />
           ))}
         </div>
