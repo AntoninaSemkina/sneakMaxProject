@@ -1,21 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./style.module.css";
 import Basket from "../Basket";
-import { product } from "../../types/product";
+import ModalOrder from "../ModalOrder";
+import { useBasket } from "../Basket/BasketContext";
 
 type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  data?: product;
 };
 
-const ModalBasket: React.FC<ModalProps> = ({ isOpen, onClose, data }) => {
+const ModalBasket: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+  const { items } = useBasket();
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
+
   const handleOutsideClick = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     if (e.target === e.currentTarget) {
       onClose();
     }
+  };
+
+  const handleOpenOrderModal = () => {
+    setIsOrderModalOpen(true);
+  };
+  const handleCloseOrderModal = () => {
+    setIsOrderModalOpen(false);
   };
 
   useEffect(() => {
@@ -52,8 +62,15 @@ const ModalBasket: React.FC<ModalProps> = ({ isOpen, onClose, data }) => {
             />
           </svg>
         </button>
-        <Basket />
+        <Basket onOpenOrderModal={handleOpenOrderModal} />
       </div>
+      {isOrderModalOpen && (
+        <ModalOrder
+          isOpen={isOrderModalOpen}
+          onClose={handleCloseOrderModal}
+          items={items}
+        />
+      )}
     </div>
   );
 };

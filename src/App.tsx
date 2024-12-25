@@ -1,12 +1,15 @@
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./router/AppRouter";
+import { BasketProvider } from "./components/Basket/BasketContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppRouter />
-    </BrowserRouter>
+    <BasketProvider>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </BasketProvider>
   );
 }
 

@@ -10,7 +10,7 @@
   justify-content: space-between;
   max-width: 600px;
   margin: auto;
-  padding: 40px;
+  padding: 20px;
   gap: 20px;
   background-color: white;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -30,5 +30,66 @@
   justify-content: space-between;
   width: 100%;
   padding: 20px 0;
+}
+.card2Block1 {
+  width: 50%;
+}
+.card2Block1 h3 {
+  font-size: 20px;
+}
+.card2Block2 {
+  width: 50%;
+}
+.sneaker {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
   border-bottom: 1px solid var(--border-radius-grey);
+}
+.photo img {
+  width: 100%;
+  transform: scaleX(-1);
+}
+.delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+.photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+.info {
+  padding: 5px;
+  width: 60%;
+}
+@media screen and (max-width: 600px) {
+  .info h3 {
+    font-size: 18px;
+    line-height: 12px;
+  }
+  .info p {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .card2 {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 550px) {
+  .info h3 {
+    font-size: 14px;
+    line-height: 12px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .info h3 {
+    font-size: 10px;
+    line-height: 12px;
+  }
 }

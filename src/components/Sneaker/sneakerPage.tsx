@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Sneaker from "../Sneaker";
 import { product } from "../../types/product";
 
@@ -9,6 +9,7 @@ const SneakerPage: FC = () => {
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSneaker = async () => {
@@ -23,9 +24,9 @@ const SneakerPage: FC = () => {
         setSneaker(data);
       } catch (error) {
         if (error instanceof Error) {
-          setError(error.message); // Обработка ошибки, если это экземпляр Error
+          setError(error.message);
         } else {
-          setError("Произошла неизвестная ошибка"); // На случай других типов ошибок
+          setError("Произошла неизвестная ошибка");
         }
       } finally {
         setIsLoading(false);
@@ -36,7 +37,11 @@ const SneakerPage: FC = () => {
   }, [id]);
 
   const handleSelect = (size: number) => {
-    setSelectedSize(size === selectedSize ? null : size); // Убираем выбор, если повторно нажали
+    setSelectedSize(size === selectedSize ? null : size);
+  };
+
+  const handleBack = () => {
+    navigate("/catalog");
   };
 
   if (isLoading) {
@@ -52,11 +57,16 @@ const SneakerPage: FC = () => {
   }
 
   return (
-    <Sneaker
-      data={sneaker}
-      selectedSize={selectedSize}
-      onSelect={handleSelect}
-    />
+    <div>
+      <button onClick={handleBack} style={{ margin: "10px", padding: "10px" }}>
+        Назад к каталогу
+      </button>
+      <Sneaker
+        data={sneaker}
+        selectedSize={selectedSize}
+        onSelect={handleSelect}
+      />
+    </div>
   );
 };
 

@@ -1,8 +1,9 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import style from "./style.module.css";
 import { product } from "../../types/product";
 import Button from "../Button";
 import StarsRepeater from "../StarsRepeater";
+import { useBasket } from "../Basket/BasketContext";
 
 type SneakerProps = {
   data: product;
@@ -15,7 +16,23 @@ const formatPrice = (price: number): string => {
   return new Intl.NumberFormat("ru-RU").format(price);
 };
 
-const Sneaker: FC<SneakerProps> = ({ data, selectedSize, onSelect }) => {
+const Sneaker: FC<SneakerProps> = ({ data }) => {
+  const { addItem } = useBasket(); // Получаем функцию добавления товара в корзину
+  const [selectedSize, setSelectedSize] = useState<number | null>(null);
+
+  const handleSelectSize = (size: number) => {
+    setSelectedSize(size === selectedSize ? null : size); // Выбор/снятие выбора размера
+  };
+
+  const handleOrder = () => {
+    if (selectedSize) {
+      addItem({ ...data, selectedSize });
+      alert("Товар добавлен в корзину!");
+    } else {
+      alert("Выберите размер перед заказом!");
+    }
+  };
+
   const MySvg = (
     <svg
       width="16"
@@ -57,7 +74,7 @@ const Sneaker: FC<SneakerProps> = ({ data, selectedSize, onSelect }) => {
                     className={`${style.card1Block2_el4_sizes} ${
                       selectedSize === size ? style.selected : ""
                     }`}
-                    onClick={() => onSelect?.(size)}
+                    onClick={() => handleSelectSize(size)}
                   >
                     {size}
                   </button>
@@ -74,6 +91,7 @@ const Sneaker: FC<SneakerProps> = ({ data, selectedSize, onSelect }) => {
                 width="430px"
                 backgroundColor="var(--button-red-color)"
                 textColor="var(--light-text-color)"
+                onClick={handleOrder}
               />
             </div>
 

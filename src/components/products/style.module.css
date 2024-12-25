@@ -3,16 +3,7 @@
   position: relative;
   width: 100%;
 }
-.bgImage svg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 540px;
-  height: 550px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
+
 .container {
   position: relative;
   max-width: 880px;
@@ -41,8 +32,16 @@
   margin: 0;
 }
 
-/* @media screen and (max-width: 390px) {
-  .container {
+@media screen and (max-width: 1200px) {
+  .mainBlock {
     grid-template-columns: repeat(2, 1fr);
   }
-} */
+}
+@media screen and (max-width: 900px) {
+  .mainBlock {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container {
+    gap: 20px;
+  }
+}

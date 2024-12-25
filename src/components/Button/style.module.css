@@ -12,15 +12,15 @@
   font-weight: 400;
 }
 
-/* @media screen and (max-width: 1440px) {
+@media screen and (max-width: 900px) {
   .btn {
-    width: 100px;
-    height: 60px;
+    height: 40px;
+    font-size: 14px;
   }
 }
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 500px) {
   .btn {
-    width: 80px;
-    height: 48px;
+    height: 40px;
+    font-size: 12px;
   }
-} */
+}

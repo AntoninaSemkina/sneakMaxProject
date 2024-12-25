@@ -4,16 +4,7 @@
   width: 100%;
   padding: 20px;
 }
-.bgImage svg {
-  position: absolute;
-  top: 50px;
-  right: 50px;
-  width: 80%;
-  height: 200px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
+
 .container {
   position: relative;
   max-width: 1200px;
@@ -39,11 +30,10 @@
   flex-direction: row;
   width: 100%;
   text-align: left;
-  gap: 40px;
+  gap: 10px;
 }
-
-/* @media screen and (max-width: 1200px) {
-  .bgImage svg {
-    width: 900px;
+@media screen and (max-width: 700px) {
+  .mainBlock {
+    flex-direction: column;
   }
-} */
+}

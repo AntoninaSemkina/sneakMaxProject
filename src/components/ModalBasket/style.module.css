@@ -14,12 +14,17 @@
 .modal {
   display: flex;
   background: white;
-  margin: 50px;
+  margin: 20px;
   padding: 20px;
   border-radius: 5px;
+  min-width: 300px;
   max-width: 500px;
+  min-height: 200px;
   position: relative;
   z-index: 1;
+}
+.modal p {
+  margin: auto;
 }
 
 .closeButton {

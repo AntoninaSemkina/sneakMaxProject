@@ -1,9 +1,14 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import { product } from "../../types/product";
 
+type BasketItem = product & {
+  selectedSize: number;
+};
+
 type BasketContextType = {
-  items: product[];
-  addItem: (item: product) => void;
+  items: BasketItem[];
+  addItem: (item: BasketItem) => void;
+  removeItem: (id: number, size: number) => void;
 };
 
 const BasketContext = createContext<BasketContextType | undefined>(undefined);
@@ -11,14 +16,20 @@ const BasketContext = createContext<BasketContextType | undefined>(undefined);
 export const BasketProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [items, setItems] = useState<product[]>([]);
+  const [items, setItems] = useState<BasketItem[]>([]);
 
-  const addItem = (item: product) => {
+  const addItem = (item: BasketItem) => {
     setItems((prevItems) => [...prevItems, item]);
   };
-
+  const removeItem = (id: number, size: number) => {
+    setItems((prevItems) =>
+      prevItems.filter(
+        (item) => !(item.id === id && item.selectedSize === size)
+      )
+    );
+  };
   return (
-    <BasketContext.Provider value={{ items, addItem }}>
+    <BasketContext.Provider value={{ items, addItem, removeItem }}>
       {children}
     </BasketContext.Provider>
   );

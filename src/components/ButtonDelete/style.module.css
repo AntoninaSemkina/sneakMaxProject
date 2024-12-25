@@ -1,0 +1,9 @@
+@import url("../../var.css");
+
+.btn {
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 0px;
+}

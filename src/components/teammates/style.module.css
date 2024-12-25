@@ -39,8 +39,8 @@
   text-align: left;
   margin: 40px 0;
 }
-/* @media screen and (max-width: 390px) {
-  .container {
+@media screen and (max-width: 900px) {
+  .mainBlock {
     grid-template-columns: repeat(2, 1fr);
   }
-} */
+}

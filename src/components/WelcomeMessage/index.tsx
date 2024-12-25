@@ -31,7 +31,7 @@ const WelcomeMessage: FC = () => {
             text="Перейти к покупкам"
             backgroundColor="var(--button-red-color)"
             textColor="var(--light-text-color)"
-            width="250px"
+            width="50%"
           />
         </div>
       </div>

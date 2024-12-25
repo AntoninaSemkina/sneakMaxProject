@@ -40,8 +40,47 @@
   gap: 40px;
 }
 
-/* @media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .bgImage svg {
-    width: 900px;
+    width: 80%;
   }
-} */
+  .mainBlock {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .mainBlock {
+    width: 80%;
+    gap: 20px;
+  }
+  .container {
+    margin: 40px auto;
+  }
+  .container h1 {
+    font-size: 24px;
+  }
+  .container p {
+    font-size: 12px;
+  }
+  .bgImage svg {
+    width: 60%;
+    top: 20px;
+    right: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .mainBlock {
+    width: 80%;
+    gap: 10px;
+  }
+  .container {
+    margin: 20px auto;
+  }
+  .container h1 {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .container p {
+    line-height: 14px;
+  }
+}

@@ -3,7 +3,7 @@
   width: 30%;
 }
 .container {
-  width: 280px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -28,12 +28,13 @@
 .sizegrid {
   display: flex;
   align-items: flex-start;
-  flex-direction: column; /* Строим элементы друг под другом */
+  flex-direction: column;
+  width: 100%;
 }
 .sizegrid p {
   margin: 0;
-  text-align: left; /* Уточняем выравнивание текста */
-  width: 100%; /* Убираем потенциальное сокращение ширины */
+  text-align: left;
+  width: 100%;
 }
 
 .gender div {
@@ -41,14 +42,26 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.sizegrid div {
-  display: grid; /* Создаем сетку для элементов Size */
-  align-items: center;
-  width: 100%;
-  justify-content: center; /* Центрируем элементы по горизонтали */
-}
-/* @media screen and (max-width: 1200px) {
-  .bgImage svg {
-    width: 900px;
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 90%;
   }
-} */
+  .gender div {
+    flex-direction: column;
+  }
+  .mainBlock h3 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .fullwidth {
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+  }
+  .gender div {
+    flex-direction: row;
+  }
+}

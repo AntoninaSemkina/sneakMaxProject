@@ -59,7 +59,7 @@ const Products: FC<ProductsProps> = ({ filters, onResetFilters }) => {
               <Product key={product.id} data={product} />
             ))
           ) : (
-            <p>Нет подходящих товаров</p> // Показываем сообщение, если ничего не найдено
+            <p>Нет подходящих товаров</p>
           )}
         </div>
         <div className={style.btnBlock}>

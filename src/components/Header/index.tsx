@@ -2,6 +2,7 @@ import React from "react";
 import Navigation from "../Navigation/index";
 import Logo from "../Logo/index";
 import style from "./style.module.css";
+import ButtonBasket from "../BasketButton";
 // import BurgerMenu from "../Navigation/BurgerMenu/index";
 
 const Header: React.FC = () => {
@@ -12,6 +13,7 @@ const Header: React.FC = () => {
           <Logo />
           <div className={style.navContainer}>
             <Navigation />
+            <ButtonBasket />
             {/* <BurgerMenu /> */}
           </div>
         </div>
