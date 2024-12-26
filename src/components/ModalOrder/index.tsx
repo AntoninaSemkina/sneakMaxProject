@@ -152,12 +152,14 @@ const ModalOrder: React.FC<ModalOrderProps> = ({ isOpen, onClose, items }) => {
             <input
               type="text"
               placeholder="Ваше имя"
+              minLength={3}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
             <input
               type="tel"
               placeholder="Номер телефона"
+              minLength={11}
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />

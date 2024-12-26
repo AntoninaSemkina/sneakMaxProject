@@ -3,8 +3,8 @@ import style from "./style.module.css";
 
 interface CheckBoxProps {
   text: string;
-  isChecked: boolean;
-  onChange: () => void;
+  isChecked?: boolean;
+  onChange?: () => void;
 }
 
 const CustomCheckbox: React.FC<CheckBoxProps> = ({

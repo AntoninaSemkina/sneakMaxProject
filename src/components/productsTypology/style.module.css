@@ -1,0 +1,47 @@
+@import url("../../var.css");
+.fullwidth {
+  position: relative;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  max-width: 880px;
+  display: grid;
+  margin: auto;
+  justify-content: space-around;
+  z-index: 1;
+  gap: 40px;
+}
+.container h1 {
+  text-align: left;
+  padding-left: 10px;
+}
+.mainBlock {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto;
+  gap: 10px;
+}
+.btnBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .mainBlock {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 900px) {
+  .mainBlock {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container {
+    gap: 20px;
+  }
+}
