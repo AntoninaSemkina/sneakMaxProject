@@ -26,19 +26,34 @@ const ModalOrder: React.FC<ModalOrderProps> = ({ isOpen, onClose, items }) => {
       return;
     }
 
-    const orderData = {
-      user: {
-        name,
-        phone,
-        email,
-      },
-      order: {
-        items,
-        total: totalPrice,
-      },
-    };
-
     try {
+      const existingOrdersResponse = await fetch(
+        "https://c6de376cf2e227cc.mokky.dev/orders",
+        {
+          method: "GET",
+        }
+      );
+
+      if (!existingOrdersResponse.ok) {
+        throw new Error("Не удалось получить существующие заказы.");
+      }
+
+      const existingOrders = await existingOrdersResponse.json();
+      const newOrderNumber = existingOrders.length + 1; //  номер нового заказа:  заказ по апи в базе+1
+
+      const orderData = {
+        orderNumber: newOrderNumber,
+        user: {
+          name,
+          phone,
+          email,
+        },
+        order: {
+          items,
+          total: totalPrice,
+        },
+      };
+
       const response = await fetch(
         "https://c6de376cf2e227cc.mokky.dev/orders",
         {
@@ -54,7 +69,7 @@ const ModalOrder: React.FC<ModalOrderProps> = ({ isOpen, onClose, items }) => {
         throw new Error("Не удалось отправить заказ.");
       }
 
-      alert("Заказ успешно оформлен!");
+      alert(`Заказ №${newOrderNumber} оформлен!`);
       onClose();
     } catch (error) {
       if (error instanceof Error) {

@@ -2,6 +2,8 @@
 .fullwidth {
   width: 100%;
   background-color: var(--dark-bg-color);
+  /* position: fixed; */
+  z-index: 100;
 }
 .container {
   max-width: 1200px;

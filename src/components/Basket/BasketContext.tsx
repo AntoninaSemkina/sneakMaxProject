@@ -19,8 +19,17 @@ export const BasketProvider: React.FC<{ children: ReactNode }> = ({
   const [items, setItems] = useState<BasketItem[]>([]);
 
   const addItem = (item: BasketItem) => {
-    setItems((prevItems) => [...prevItems, item]);
+    const exists = items.some(
+      (existingItem) =>
+        existingItem.id === item.id &&
+        existingItem.selectedSize === item.selectedSize
+    );
+
+    if (!exists) {
+      setItems((prevItems) => [...prevItems, item]);
+    }
   };
+
   const removeItem = (id: number, size: number) => {
     setItems((prevItems) =>
       prevItems.filter(
@@ -28,6 +37,7 @@ export const BasketProvider: React.FC<{ children: ReactNode }> = ({
       )
     );
   };
+
   return (
     <BasketContext.Provider value={{ items, addItem, removeItem }}>
       {children}

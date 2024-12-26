@@ -4,6 +4,7 @@ export type product = {
   inStock: number;
   title: string;
   description: string;
+  typology: string;
   imgUrl: string;
   stars: number;
   sizes: number[];

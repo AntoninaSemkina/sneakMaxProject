@@ -16,7 +16,7 @@
 .modal {
   display: flex;
   flex-direction: column;
-  background: white;
+  background-color: #f6f6f6;
   margin: 20px;
   padding: 20px;
   border-radius: 5px;
@@ -88,7 +88,7 @@
   font-size: 14px;
   line-height: 14px;
   font-weight: 400;
-  border: 1px solid var(--border-line);
+  border: 1px solid var(--middle-text-color);
   color: var(--dark-text-color);
   cursor: pointer;
   background-color: #f6f6f6;

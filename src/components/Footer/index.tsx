@@ -12,7 +12,6 @@ const Footer: React.FC = () => {
           <Logo />
           <div className={style.navContainer}>
             <Navigation />
-            {/* <BurgerMenu /> */}
           </div>
         </div>
       </div>

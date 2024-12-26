@@ -1,14 +1,14 @@
 import { FC, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Sneaker from "../Sneaker";
 import { product } from "../../types/product";
+import ChooseSize from "../../components/ModalChooseSize";
 
-const SneakerPage: FC = () => {
+const ChooseSizePage: FC = () => {
   const { id } = useParams<{ id: string }>();
   const [sneaker, setSneaker] = useState<product | null>(null);
-  const [selectedSize, setSelectedSize] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,13 +36,10 @@ const SneakerPage: FC = () => {
     fetchSneaker();
   }, [id]);
 
-  const handleSelect = (size: number) => {
-    setSelectedSize(size === selectedSize ? null : size);
-  };
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
 
-  const handleBack = () => {
-    navigate("/catalog");
-  };
+  const handleBack = () => navigate("/catalog");
 
   if (isLoading) {
     return <p>Загрузка...</p>;
@@ -58,13 +55,15 @@ const SneakerPage: FC = () => {
 
   return (
     <div>
-      <Sneaker
-        data={sneaker}
-        selectedSize={selectedSize}
-        onSelect={handleSelect}
-      />
+      {isModalOpen && (
+        <ChooseSize
+          data={sneaker}
+          onClose={handleCloseModal}
+          isOpen={isModalOpen}
+        />
+      )}
     </div>
   );
 };
 
-export default SneakerPage;
+export default ChooseSizePage;

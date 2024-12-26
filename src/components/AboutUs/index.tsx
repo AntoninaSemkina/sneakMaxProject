@@ -1,6 +1,7 @@
 import { FC } from "react";
 import style from "./style.module.css";
 import AboutUsImage from "../../assets/AboutUsImage.svg";
+
 const AboutUs: FC = () => {
   return (
     <div className={style.fullwidth}>

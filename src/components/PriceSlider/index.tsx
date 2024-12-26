@@ -10,6 +10,9 @@ interface PriceSliderProps {
   currentMaxPrice: number;
   onChange: (min: number, max: number) => void;
 }
+const formatPrice = (price: number): string => {
+  return new Intl.NumberFormat("ru-RU").format(price);
+};
 
 const PriceSlider: FC<PriceSliderProps> = ({
   minPrice,
@@ -54,10 +57,10 @@ const PriceSlider: FC<PriceSliderProps> = ({
     <div className={style.container}>
       <div className={style.card}>
         <div className={style.minPrice}>
-          <p>{currentMinPrice}</p>
+          <p>{formatPrice(currentMinPrice)}</p>
         </div>
         <div className={style.maxPrice}>
-          <p>{currentMaxPrice}</p>
+          <p>{formatPrice(currentMaxPrice)}</p>
         </div>
       </div>
       <div className={style.priceSlider} ref={sliderRef}></div>

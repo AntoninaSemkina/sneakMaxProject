@@ -2,9 +2,11 @@ import React from "react";
 import { useState } from "react";
 import style from "./style.module.css";
 import ModalBasket from "../ModalBasket";
+import { useBasket } from "../Basket/BasketContext";
 
 const ButtonBasket: React.FC = ({}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { items } = useBasket();
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
@@ -12,7 +14,6 @@ const ButtonBasket: React.FC = ({}) => {
   return (
     <div className={style.container}>
       <button onClick={handleOpenModal} className={style.btn}>
-        Корзина{" "}
         <svg
           width="20"
           height="19"
@@ -25,7 +26,13 @@ const ButtonBasket: React.FC = ({}) => {
             fill="white"
           />
         </svg>
+        {items.length > 0 && (
+          <div className={style.basketContent}>
+            <p>{items.length}</p>
+          </div>
+        )}
       </button>
+
       {isModalOpen && (
         <ModalBasket isOpen={isModalOpen} onClose={handleCloseModal} />
       )}

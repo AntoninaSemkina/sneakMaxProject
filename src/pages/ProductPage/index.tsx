@@ -3,8 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import style from "./style.module.css";
 import Sneaker from "../../components/Sneaker";
 import { product } from "../../types/product";
-// import Header from "../../components/Header";
-// import WelcomeMessage from "../../components/WelcomeMessage";
 
 const ProductPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

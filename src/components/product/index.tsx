@@ -1,13 +1,24 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./style.module.css";
 import { product } from "../../types/product";
+import ChooseSize from "../ModalChooseSize";
 
 type Props = {
   data: product;
 };
 
 const Product: FC<Props> = ({ data }) => {
+  const [isChooseSizeModalOpen, setChooseSizeModalOpen] = useState(false);
+
+  const handleOpenChooseSizeModal = () => {
+    setChooseSizeModalOpen(true);
+  };
+
+  const handleCloseChooseSizeModal = () => {
+    setChooseSizeModalOpen(false);
+  };
+
   return (
     <div className={style.card}>
       <div className={style.image}>
@@ -43,7 +54,10 @@ const Product: FC<Props> = ({ data }) => {
             </svg>
           </Link>
           {/* Правая кнопка: добавление в корзину */}
-          <button className={`${style.button} ${style.addToCart}`}>
+          <button
+            className={`${style.button} ${style.addToCart}`}
+            onClick={handleOpenChooseSizeModal}
+          >
             <svg
               width="28"
               height="26"
@@ -61,6 +75,14 @@ const Product: FC<Props> = ({ data }) => {
       </div>
       <h3>{data.title}</h3>
       <p>{data.price}</p>
+
+      {isChooseSizeModalOpen && (
+        <ChooseSize
+          data={data}
+          isOpen={isChooseSizeModalOpen}
+          onClose={handleCloseChooseSizeModal}
+        />
+      )}
     </div>
   );
 };
