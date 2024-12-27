@@ -88,9 +88,9 @@
 .addToCart:hover {
   background-color: var(--button-greyHover-color);
 }
-
+/* 
 @media screen and (max-width: 900px) {
   .card {
     padding: 0 0;
   }
-}
+} */

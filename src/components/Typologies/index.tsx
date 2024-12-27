@@ -1,10 +1,10 @@
 import { FC, useState, useEffect } from "react";
 import style from "./style.module.css";
-import ProductTypology from "../productTypology";
-import { Typology } from "../../types/typology";
+import Typology from "../Typology";
+import { typology as TypologyType, TypologyArray } from "../../types/typology";
 
-const ProductsTypology: FC = () => {
-  const [typologyData, setTypologyData] = useState<Typology[]>([]);
+const Typologies: FC = () => {
+  const [typologyData, setTypologyData] = useState<TypologyArray>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -17,7 +17,7 @@ const ProductsTypology: FC = () => {
         if (!response.ok) {
           throw new Error(`Failed to fetch: ${response.statusText}`);
         }
-        const data: Typology[] = await response.json();
+        const data: TypologyArray = await response.json();
         setTypologyData(data);
       } catch (err) {
         setError((err as Error).message);
@@ -41,8 +41,8 @@ const ProductsTypology: FC = () => {
     <div className={style.fullwidth}>
       <div className={style.container}>
         <div className={style.mainBlock}>
-          {typologyData.map((typologyItem) => (
-            <ProductTypology key={typologyItem.id} data={typologyItem} />
+          {typologyData.map((item) => (
+            <Typology key={item.id} data={item} />
           ))}
         </div>
       </div>
@@ -50,4 +50,4 @@ const ProductsTypology: FC = () => {
   );
 };
 
-export default ProductsTypology;
+export default Typologies;

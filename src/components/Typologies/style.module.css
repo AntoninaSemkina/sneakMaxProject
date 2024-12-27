@@ -6,16 +6,19 @@
 
 .container {
   position: relative;
-  max-width: 880px;
+  max-width: 1200px;
+  width: 100%;
   display: grid;
   margin: auto;
-  justify-content: space-around;
+  justify-content: space-between;
   z-index: 1;
-  gap: 40px;
+  margin: 20px;
 }
 .container h1 {
   text-align: left;
   padding-left: 10px;
+
+  margin: 20px;
 }
 .mainBlock {
   display: grid;
@@ -34,7 +37,7 @@
 
 @media screen and (max-width: 1200px) {
   .mainBlock {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (max-width: 900px) {

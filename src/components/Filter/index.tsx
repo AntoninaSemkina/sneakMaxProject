@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
 import style from "./style.module.css";
 import CheckboxButton from "../checkbox";
 import Button from "../Button";

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import style from "./style.module.css";
 import Button from "../Button";
-import ProductsTypology from "../productTypology";
-import { Typology } from "../../types/typology";
+import { typology as TypologyType, TypologyArray } from "../../types/typology";
+import Typologies from "../Typologies"; // Используем компонент для массива данных
+import selection2 from "../../assets/selection2.svg";
+import ShareInfo from "../ShareInfo";
 
 const SelectionProducts: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [typologyData, setTypologyData] = useState<Typology[]>([]);
+  const [typologyData, setTypologyData] = useState<TypologyArray>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,7 +23,7 @@ const SelectionProducts: React.FC = () => {
         if (!response.ok) {
           throw new Error(`Failed to fetch: ${response.statusText}`);
         }
-        const data: Typology[] = await response.json();
+        const data: TypologyArray = await response.json();
         setTypologyData(data);
       } catch (err) {
         setError((err as Error).message);
@@ -62,55 +64,83 @@ const SelectionProducts: React.FC = () => {
               </div>
               <div className={style.block2}>
                 <h3>Какой тип кроссовок рассматриваете?</h3>
-                <div></div>
-                <ProductsTypology data={typologyData} />
+                <Typologies />
               </div>
             </div>
           )}
           {currentSlide === 1 && (
-            <div>
-              <h2>Шаг 2: Вопрос</h2>
-              <p>Какой размер вы предпочитаете?</p>
-              <input type="text" placeholder="Введите размер" />
+            <div className={style.container}>
+              <div className={style.block1}>
+                <h2>Мы подберем идеальную пару для вас</h2>
+                <p>
+                  Ответьте на три вопроса и мы вышлем каталог с самыми
+                  подходящими для вас моделями
+                </p>
+              </div>
+              <div className={style.block2}>
+                <h3>Какой размер вам подойдет?</h3>
+              </div>
+              <div className={style.block3}>
+                <img src={selection2} alt="sneakers" />
+              </div>
             </div>
           )}
           {currentSlide === 2 && (
-            <div>
-              <h2>Шаг 3: Вопрос</h2>
-              <p>Какой цвет вы предпочитаете?</p>
-              <input type="text" placeholder="Введите цвет" />
+            <div className={style.container}>
+              <div className={style.block1}>
+                <h2>Мы подберем идеальную пару для вас</h2>
+                <p>
+                  Ответьте на три вопроса и мы вышлем каталог с самыми
+                  подходящими для вас моделями
+                </p>
+              </div>
+              <div className={style.block2}>
+                <h3>Уточните какие-либо моменты</h3>
+                <textarea
+                  className={style.textarea}
+                  name="text"
+                  id="selectionProduct"
+                  placeholder="Введите сообщение"
+                ></textarea>
+              </div>
             </div>
           )}
           {currentSlide === 3 && (
-            <div>
-              <h2>Готово</h2>
-              <p>Мы подберем для вас лучшие модели и отправим их на почту!</p>
+            <div className={style.container}>
+              <div className={style.block1}>
+                <h2>Ваша подборка готова!</h2>
+                <p>
+                  Оставьте свои контактные данные, чтобы бы мы могли отправить
+                  подготовленный для вас каталог
+                </p>
+              </div>
+              <div className={style.block2}>
+                <ShareInfo />
+              </div>
             </div>
           )}
         </div>
 
         <div className={style.controls}>
-          <div className={style.pages}>
-            <div>
-              {currentSlide + 1} из {totalSlides}
+          <div className={style.controls_block}>
+            <div className={style.pages}>
+              <div>
+                {currentSlide + 1} из {totalSlides}
+              </div>
             </div>
+            {currentSlide < totalSlides - 1 ? (
+              <Button
+                text="Следующий шаг"
+                width="220px"
+                backgroundColor="transparent"
+                textColor="var(--dark-text-color)"
+                onClick={handleNext}
+                border="1px solid var(--button-grey-color)"
+              />
+            ) : (
+              ""
+            )}
           </div>
-          {currentSlide < totalSlides - 1 ? (
-            <Button
-              text="Следующий шаг"
-              width="50%"
-              backgroundColor="transparent"
-              textColor="var(--dark-text-color)"
-              onClick={handleNext}
-            />
-          ) : (
-            <button
-              className={style.button}
-              onClick={() => alert("Ваши данные отправлены!")}
-            >
-              Завершить
-            </button>
-          )}
         </div>
       </div>
     </div>
