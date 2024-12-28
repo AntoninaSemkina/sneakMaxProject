@@ -19,7 +19,8 @@ type ModalOrderProps = {
 const ModalOrder: React.FC<ModalOrderProps> = ({ isOpen, onClose, items }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
+  const { clearBasket } = useBasket();
+
   const handleOrderSubmit = async () => {
     if (!name || !phone || !email) {
       alert("Заполните все поля.");
@@ -78,6 +79,7 @@ const ModalOrder: React.FC<ModalOrderProps> = ({ isOpen, onClose, items }) => {
         alert("Произошла неизвестная ошибка.");
       }
     }
+    clearBasket();
   };
 
   if (!isOpen) return null;
@@ -90,6 +92,23 @@ const ModalOrder: React.FC<ModalOrderProps> = ({ isOpen, onClose, items }) => {
 
   const isOrderDisabled = items.length === 0;
 
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
+  const validateEmail = (value: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) {
+      setError("Введите корректный email");
+    } else {
+      setError("");
+    }
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setEmail(value);
+    validateEmail(value);
+  };
   return (
     <div
       className={style.overlay}
@@ -167,8 +186,9 @@ const ModalOrder: React.FC<ModalOrderProps> = ({ isOpen, onClose, items }) => {
               type="email"
               placeholder="E-mail"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleChange}
             />
+            {error && <p className={style.error}>{error}</p>}
           </div>
         </div>
         <div className={style.container_block3}>

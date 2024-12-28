@@ -129,7 +129,10 @@ const SelectionProducts: React.FC = () => {
                 </p>
               </div>
               <div className={style.block2}>
-                <ShareInfo />
+                <ShareInfo
+                  title="Получить предложение"
+                  text="Получите подборку подходящих для вас моделей на почту"
+                />
               </div>
             </div>
           )}

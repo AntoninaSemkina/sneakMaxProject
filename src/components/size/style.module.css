@@ -6,7 +6,6 @@
   align-items: center;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   color: var(--dark-text-color);
-  width: 80px;
   height: 60px;
   background-color: transparent;
   font-size: 16px;
@@ -19,14 +18,9 @@
   color: var(--light-text-color);
   border-color: var(--check-box-color);
 }
-@media screen and (max-width: 900px) {
-  .card {
-    width: 60px;
-  }
-}
+
 @media screen and (max-width: 450px) {
   .card {
-    width: 40px;
     height: 40px;
   }
 }

@@ -9,6 +9,7 @@ type BasketContextType = {
   items: BasketItem[];
   addItem: (item: BasketItem) => void;
   removeItem: (id: number, size: number) => void;
+  clearBasket: () => void;
 };
 
 const BasketContext = createContext<BasketContextType | undefined>(undefined);
@@ -37,9 +38,12 @@ export const BasketProvider: React.FC<{ children: ReactNode }> = ({
       )
     );
   };
+  const clearBasket = () => {
+    setItems([]);
+  };
 
   return (
-    <BasketContext.Provider value={{ items, addItem, removeItem }}>
+    <BasketContext.Provider value={{ items, addItem, removeItem, clearBasket }}>
       {children}
     </BasketContext.Provider>
   );

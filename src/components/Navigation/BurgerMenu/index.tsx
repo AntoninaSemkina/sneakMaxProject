@@ -5,6 +5,7 @@ import {
   ABOUTCOMPANY_PAGE_ROUTE,
   CATALOG_PAGE_ROUTE,
   MAIN_PAGE_ROUTE,
+  SELECT_PAGE_ROUTE,
   TEAM_PAGE_ROUTE,
 } from "../../../utils/ consts";
 
@@ -90,7 +91,7 @@ const BurgerMenu: React.FC = () => {
               </button>
               <button
                 className={style.btn}
-                onClick={() => handleNavigate(MAIN_PAGE_ROUTE)}
+                onClick={() => handleNavigate(SELECT_PAGE_ROUTE)}
               >
                 Подбор товара
               </button>

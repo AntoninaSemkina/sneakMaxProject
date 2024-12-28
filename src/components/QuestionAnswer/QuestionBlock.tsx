@@ -36,7 +36,7 @@ const QuestionBlock: React.FC<MainBlockProps> = ({ questions }) => {
 
   return (
     <div className={style.container}>
-      {questions.slice(0, 2).map((item, index) => (
+      {questions.map((item, index) => (
         <div key={index} className={style.block}>
           <div className={style.info}>
             <span>{item.question}</span>

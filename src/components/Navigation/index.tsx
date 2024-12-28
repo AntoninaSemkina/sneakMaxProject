@@ -4,6 +4,7 @@ import {
   ABOUTCOMPANY_PAGE_ROUTE,
   CATALOG_PAGE_ROUTE,
   MAIN_PAGE_ROUTE,
+  SELECT_PAGE_ROUTE,
   TEAM_PAGE_ROUTE,
 } from "../../utils/ consts";
 import style from "./style.module.css";
@@ -25,7 +26,7 @@ const Navigation: React.FC = () => {
       >
         О нас
       </button>
-      <button className={style.btn} onClick={() => navigate(MAIN_PAGE_ROUTE)}>
+      <button className={style.btn} onClick={() => navigate(SELECT_PAGE_ROUTE)}>
         Подбор товара
       </button>
       <button className={style.btn} onClick={() => navigate(TEAM_PAGE_ROUTE)}>

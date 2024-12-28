@@ -1,10 +1,9 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import style from "./style.module.css";
 import CheckboxButton from "../checkbox";
 import Button from "../Button";
 import Sizes from "../sizes";
 import PriceSlider from "../PriceSlider";
-import productData from "../../data/products.json";
 
 interface FilterProps {
   onApplyFilters: (filters: {
@@ -16,14 +15,42 @@ interface FilterProps {
 }
 
 const Filter: FC<FilterProps> = ({ onApplyFilters, onResetFilters }) => {
-  const prices = productData.map((product) => product.price);
-  const globalMinPrice = Math.min(...prices);
-  const globalMaxPrice = Math.max(...prices);
+  const [prices, setPrices] = useState<number[]>([]);
+  const [globalMinPrice, setGlobalMinPrice] = useState<number>(0);
+  const [globalMaxPrice, setGlobalMaxPrice] = useState<number>(100);
 
   const [selectedGender, setSelectedGender] = useState<string[]>([]);
   const [selectedSizes, setSelectedSizes] = useState<number[]>([]);
   const [selectedMinPrice, setSelectedMinPrice] = useState(globalMinPrice);
   const [selectedMaxPrice, setSelectedMaxPrice] = useState(globalMaxPrice);
+
+  useEffect(() => {
+    const fetchPrices = async () => {
+      try {
+        const response = await fetch(
+          "https://c6de376cf2e227cc.mokky.dev/sneakers"
+        );
+        const data = await response.json();
+
+        const productPrices = data.map(
+          (product: { price: number }) => product.price
+        );
+        setPrices(productPrices);
+
+        const minPrice = Math.min(...productPrices);
+        const maxPrice = Math.max(...productPrices);
+
+        setGlobalMinPrice(minPrice);
+        setGlobalMaxPrice(maxPrice);
+        setSelectedMinPrice(minPrice);
+        setSelectedMaxPrice(maxPrice);
+      } catch (error) {
+        console.error("Ошибка загрузки цен:", error);
+      }
+    };
+
+    fetchPrices();
+  }, []);
 
   const toggleSize = (size: number) => {
     setSelectedSizes((prev) =>
@@ -81,12 +108,12 @@ const Filter: FC<FilterProps> = ({ onApplyFilters, onResetFilters }) => {
             <div>
               <CheckboxButton
                 text="мужcкой"
-                isChecked={selectedGender.includes("Мужской")} // Проверяем, выбран ли "мужской"
+                isChecked={selectedGender.includes("Мужской")}
                 onChange={() => toggleGender("Мужской")}
               />
               <CheckboxButton
                 text="женский"
-                isChecked={selectedGender.includes("Женский")} // Проверяем, выбран ли "женский"
+                isChecked={selectedGender.includes("Женский")}
                 onChange={() => toggleGender("Женский")}
               />
             </div>
@@ -111,4 +138,5 @@ const Filter: FC<FilterProps> = ({ onApplyFilters, onResetFilters }) => {
     </div>
   );
 };
+
 export default Filter;

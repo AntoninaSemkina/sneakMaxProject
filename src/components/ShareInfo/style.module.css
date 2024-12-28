@@ -31,14 +31,25 @@
   border: 1px solid transparent;
   padding: 0 5px;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 900px) {
   .container {
-    width: 100%;
+    width: 60%;
   }
   .mainBlock h2 {
     font-size: 24px;
   }
   .mainBlock p {
     font-size: 16px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+  .mainBlock h2 {
+    font-size: 20px;
+  }
+  .mainBlock p {
+    font-size: 12px;
   }
 }

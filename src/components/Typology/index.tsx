@@ -6,15 +6,6 @@ import typology from "../../assets/typology.svg";
 type Props = {
   data: TypologyType;
 };
-// const [selectedTypology, setSelectedTypology] = useState<string[]>([]);
-
-// const toggleTypology = (typology: string) => {
-//   setSelectedTypology((prev) =>
-//     prev.includes(typology)
-//       ? prev.filter((g) => g !== typology)
-//       : [...prev, typology]
-//   );
-// };
 
 const Typology: FC<Props> = ({ data }) => {
   return (
@@ -23,11 +14,7 @@ const Typology: FC<Props> = ({ data }) => {
         <img src={typology} alt="typology" />
       </div>
       <div className={style.block2}>
-        <CheckboxButton
-          text={data.typology}
-          // isChecked={selectedTypology.includes("{data.typology}")}
-          // onChange={() => toggleTypology("{data.typology}")}
-        />
+        <CheckboxButton text={data.typology} />
       </div>
     </div>
   );

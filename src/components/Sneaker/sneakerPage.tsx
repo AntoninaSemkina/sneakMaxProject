@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Sneaker from "../Sneaker";
 import { product } from "../../types/product";
 

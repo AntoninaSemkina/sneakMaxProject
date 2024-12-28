@@ -2,7 +2,6 @@ import React from "react";
 import Navigation from "../Navigation/index";
 import Logo from "../Logo/index";
 import style from "./style.module.css";
-// import BurgerMenu from "../Navigation/BurgerMenu/index";
 
 const Footer: React.FC = () => {
   return (
