@@ -20,7 +20,7 @@ const Typology: FC<Props> = ({ data }) => {
   return (
     <div className={style.card}>
       <div className={style.block1}>
-        <img src={typology} alt="" />
+        <img src={typology} alt="typology" />
       </div>
       <div className={style.block2}>
         <CheckboxButton

@@ -66,31 +66,16 @@
   opacity: 1;
 }
 
-.link,
-.addToCart {
-  background-color: var(--button-grey-color);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 14px;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.link:hover,
-.addToCart:hover {
-  background-color: var(--button-greyHover-color);
-}
-/* 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 500px) {
   .card {
     padding: 0 0;
   }
-} */
+  .block2 p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .block2 p {
+    font-size: 10px;
+  }
+}

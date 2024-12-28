@@ -1,6 +1,6 @@
 import { FC } from "react";
 import style from "./style.module.css";
-import QuestionBlock from "../Questions";
+import QuestionBlock from "./QuestionBlock";
 
 const questions = [
   {

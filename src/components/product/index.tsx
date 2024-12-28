@@ -18,6 +18,9 @@ const Product: FC<Props> = ({ data }) => {
   const handleCloseChooseSizeModal = () => {
     setChooseSizeModalOpen(false);
   };
+  const formatPrice = (price: number): string => {
+    return new Intl.NumberFormat("ru-RU").format(price);
+  };
 
   return (
     <div className={style.card}>
@@ -74,7 +77,7 @@ const Product: FC<Props> = ({ data }) => {
         </div>
       </div>
       <h3>{data.title}</h3>
-      <p>{data.price}</p>
+      <p>{formatPrice(data.price)}</p>
 
       {isChooseSizeModalOpen && (
         <ChooseSize

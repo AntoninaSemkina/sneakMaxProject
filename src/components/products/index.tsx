@@ -1,8 +1,8 @@
 import { FC, useState, useEffect } from "react";
-import productData from "../../data/products.json";
 import style from "./style.module.css";
 import Product from "../product";
 import Button from "../Button";
+import { product } from "../../types/product";
 
 interface ProductsProps {
   filters: {
@@ -27,12 +27,48 @@ const Products: FC<ProductsProps> = ({ filters, onResetFilters }) => {
     setVisibleCount((prevCount) => prevCount + 6);
   };
 
+  const [productData, setProductData] = useState<product[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchProductData = async () => {
+      try {
+        const response = await fetch(
+          "https://c6de376cf2e227cc.mokky.dev/sneakers"
+        );
+        if (!response.ok) {
+          throw new Error("Ошибка загрузки данных");
+        }
+        const data: product[] = await response.json();
+        setProductData(data);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Произошла неизвестная ошибка");
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProductData();
+  }, []);
+
+  if (isLoading) {
+    return <p>Загрузка...</p>;
+  }
+
+  if (error) {
+    return <p>Ошибка: {error}</p>;
+  }
+
   const isFilterApplied =
     filters.gender.length > 0 ||
     filters.size.length > 0 ||
     (filters.price.min > 0 && filters.price.max < Infinity);
 
-  // Фильтруем товары
   const filteredProducts = productData.filter((product) => {
     const matchesGender =
       filters.gender.length === 0 || filters.gender.includes(product.gender);
@@ -45,7 +81,6 @@ const Products: FC<ProductsProps> = ({ filters, onResetFilters }) => {
     return matchesGender && matchesSize && matchesPrice;
   });
 
-  // Если фильтры не применены, показываем весь каталог
   const productsToDisplay = isFilterApplied
     ? filteredProducts.slice(0, visibleCount)
     : productData.slice(0, visibleCount);
@@ -55,8 +90,8 @@ const Products: FC<ProductsProps> = ({ filters, onResetFilters }) => {
       <div className={style.container}>
         <div className={style.mainBlock}>
           {productsToDisplay.length > 0 ? (
-            productsToDisplay.map((product) => (
-              <Product key={product.id} data={product} />
+            productsToDisplay.map((member) => (
+              <Product key={member.id} data={member} />
             ))
           ) : (
             <p>Нет подходящих товаров</p>

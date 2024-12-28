@@ -9,7 +9,6 @@ const SneakerPage: FC = () => {
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSneaker = async () => {
@@ -38,10 +37,6 @@ const SneakerPage: FC = () => {
 
   const handleSelect = (size: number) => {
     setSelectedSize(size === selectedSize ? null : size);
-  };
-
-  const handleBack = () => {
-    navigate("/catalog");
   };
 
   if (isLoading) {

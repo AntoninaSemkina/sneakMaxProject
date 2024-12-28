@@ -5,6 +5,7 @@ import { typology as TypologyType, TypologyArray } from "../../types/typology";
 import Typologies from "../Typologies"; // Используем компонент для массива данных
 import selection2 from "../../assets/selection2.svg";
 import ShareInfo from "../ShareInfo";
+import CheckboxButton from "../checkbox";
 
 const SelectionProducts: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,7 +41,13 @@ const SelectionProducts: React.FC = () => {
       setCurrentSlide(currentSlide + 1);
     }
   };
-
+  const sizes = [
+    { var: "менее 36" },
+    { var: "36-38" },
+    { var: "39-41" },
+    { var: "42-44" },
+    { var: "45 и больше" },
+  ];
   if (loading) {
     return <p>Loading typologies...</p>;
   }
@@ -79,6 +86,13 @@ const SelectionProducts: React.FC = () => {
               </div>
               <div className={style.block2}>
                 <h3>Какой размер вам подойдет?</h3>
+                <div className={style.sizes}>
+                  {sizes.map((item) => (
+                    <div>
+                      <CheckboxButton text={item.var} />
+                    </div>
+                  ))}
+                </div>
               </div>
               <div className={style.block3}>
                 <img src={selection2} alt="sneakers" />
@@ -131,7 +145,7 @@ const SelectionProducts: React.FC = () => {
             {currentSlide < totalSlides - 1 ? (
               <Button
                 text="Следующий шаг"
-                width="220px"
+                width="250px"
                 backgroundColor="transparent"
                 textColor="var(--dark-text-color)"
                 onClick={handleNext}

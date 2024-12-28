@@ -8,11 +8,11 @@ const ShareInfo: React.FC = () => {
       <div className={style.mainBlock}>
         <h2>Получить предложение</h2>
         <p>Получите подборку подходящих для вас моделей на почту</p>
-        <input type="text" placeholder="Ваше имя" />
-        <input type="email" placeholder="E-mail" />
+        <input className={style.name} type="text" placeholder="Ваше имя" />
+        <input className={style.email} type="email" placeholder="E-mail" />
         <Button
           text="Получить"
-          width="220px"
+          width="150px"
           onClick={() => alert("Ваши данные отправлены!")}
           backgroundColor="var(--button-red-color)"
           textColor="var(--light-text-color)"

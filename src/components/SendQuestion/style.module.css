@@ -1,0 +1,40 @@
+@import url("../../var.css");
+
+.fullwidth {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.container {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 1;
+}
+.container h1 {
+  width: 100%;
+  color: var(--dark-text-color);
+}
+.titleBlock {
+  width: 100%;
+  text-align: left;
+  margin: 20px 0;
+}
+.mainBlock {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: left;
+  gap: 10px;
+}
+@media screen and (max-width: 700px) {
+  .mainBlock {
+    flex-direction: column;
+  }
+}

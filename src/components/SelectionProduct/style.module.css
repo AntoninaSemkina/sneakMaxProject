@@ -77,3 +77,20 @@
   min-height: 200px;
   border: 1px solid var(--light-bg-color);
 }
+.sizes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+@media screen and (max-width: 500px) {
+  .block1 h2 {
+    font-size: 20px;
+  }
+  .block1 p {
+    font-size: 10px;
+  }
+  .block2 h3 {
+    font-size: 16px;
+  }
+}
