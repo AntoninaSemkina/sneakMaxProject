@@ -5,7 +5,7 @@ import Button from "../Button";
 import ButtonDelete from "../ButtonDelete";
 
 type BasketProps = {
-  onOpenOrderModal: () => void;
+  onOpenOrderModal?: () => void;
 };
 
 const Basket: React.FC<BasketProps> = ({ onOpenOrderModal }) => {

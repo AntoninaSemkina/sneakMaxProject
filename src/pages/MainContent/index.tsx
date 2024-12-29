@@ -7,6 +7,7 @@ import AboutUs from "../../components/AboutUs";
 import QuestionAnswer from "../../components/QuestionAnswer";
 import SelectionProducts from "../../components/SelectionProduct";
 import SendQuestion from "../../components/SendQuestion";
+import ContactPage from "../../components/Contact";
 
 const MainContent: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const MainContent: React.FC = () => {
       <SelectionProducts />
       <Teammates />
       <QuestionAnswer />
+      <ContactPage />
       <SendQuestion />
     </div>
   );

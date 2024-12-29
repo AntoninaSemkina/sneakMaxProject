@@ -1,6 +1,7 @@
 import {
   ABOUTCOMPANY_PAGE_ROUTE,
   CATALOG_PAGE_ROUTE,
+  CONTACT_PAGE_ROUTE,
   MAIN_PAGE_ROUTE,
   PRODUCT_PAGE_ROUTE,
   SELECT_PAGE_ROUTE,
@@ -13,6 +14,7 @@ import AboutCompanyPage from "../pages/AboutCompany";
 import ProductPage from "../pages/ProductPage";
 import Basket from "../components/Basket";
 import SelectPage from "../pages/SelectPage";
+import ContactPage from "../pages/ContactPage";
 
 export const publicRoutes = [
   {
@@ -38,6 +40,10 @@ export const publicRoutes = [
   {
     path: SELECT_PAGE_ROUTE,
     Component: SelectPage,
+  },
+  {
+    path: CONTACT_PAGE_ROUTE,
+    Component: ContactPage,
   },
   {
     path: "/basket",

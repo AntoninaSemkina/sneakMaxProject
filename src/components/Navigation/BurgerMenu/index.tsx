@@ -4,6 +4,7 @@ import style from "./style.module.css";
 import {
   ABOUTCOMPANY_PAGE_ROUTE,
   CATALOG_PAGE_ROUTE,
+  CONTACT_PAGE_ROUTE,
   MAIN_PAGE_ROUTE,
   SELECT_PAGE_ROUTE,
   TEAM_PAGE_ROUTE,
@@ -101,15 +102,15 @@ const BurgerMenu: React.FC = () => {
               >
                 Наша команда
               </button>
-              <button
+              {/* <button
                 className={style.btn}
                 onClick={() => handleNavigate(MAIN_PAGE_ROUTE)}
               >
                 Доставка и оплата
-              </button>
+              </button> */}
               <button
                 className={style.btn}
-                onClick={() => handleNavigate(MAIN_PAGE_ROUTE)}
+                onClick={() => handleNavigate(CONTACT_PAGE_ROUTE)}
               >
                 Контакты
               </button>
