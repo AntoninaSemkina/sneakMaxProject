@@ -9,10 +9,6 @@ type ChooseSizeProps = {
   onClose: () => void;
 };
 
-const formatPrice = (price: number): string => {
-  return new Intl.NumberFormat("ru-RU").format(price);
-};
-
 const ChooseSize: FC<ChooseSizeProps> = ({ data, isOpen, onClose }) => {
   const { addItem } = useBasket();
   const [selectedSize, setSelectedSize] = useState<number | null>(null);

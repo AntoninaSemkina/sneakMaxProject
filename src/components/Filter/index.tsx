@@ -15,7 +15,6 @@ interface FilterProps {
 }
 
 const Filter: FC<FilterProps> = ({ onApplyFilters, onResetFilters }) => {
-  const [prices, setPrices] = useState<number[]>([]);
   const [globalMinPrice, setGlobalMinPrice] = useState<number>(0);
   const [globalMaxPrice, setGlobalMaxPrice] = useState<number>(100);
 
@@ -35,8 +34,6 @@ const Filter: FC<FilterProps> = ({ onApplyFilters, onResetFilters }) => {
         const productPrices = data.map(
           (product: { price: number }) => product.price
         );
-        setPrices(productPrices);
-
         const minPrice = Math.min(...productPrices);
         const maxPrice = Math.max(...productPrices);
 

@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { product } from "../../types/product";
 import ChooseSize from "../../components/ModalChooseSize";
 
@@ -9,7 +9,6 @@ const ChooseSizePage: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSneaker = async () => {
@@ -36,10 +35,7 @@ const ChooseSizePage: FC = () => {
     fetchSneaker();
   }, [id]);
 
-  const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
-
-  const handleBack = () => navigate("/catalog");
 
   if (isLoading) {
     return <p>Загрузка...</p>;

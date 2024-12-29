@@ -5,7 +5,6 @@ import {
   ABOUTCOMPANY_PAGE_ROUTE,
   CATALOG_PAGE_ROUTE,
   CONTACT_PAGE_ROUTE,
-  MAIN_PAGE_ROUTE,
   SELECT_PAGE_ROUTE,
   TEAM_PAGE_ROUTE,
 } from "../../../utils/ consts";
