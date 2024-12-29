@@ -6,7 +6,7 @@ import { BasketProvider } from "./components/Basket/BasketContext";
 function App() {
   return (
     <BasketProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/sneakMaxProject">
         <AppRouter />
       </BrowserRouter>
     </BasketProvider>
