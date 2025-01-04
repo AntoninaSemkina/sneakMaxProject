@@ -1,8 +1,11 @@
 import { FC } from "react";
 import style from "./style.module.css";
 import Button from "../Button";
+import { useNavigate } from "react-router-dom";
+import { CATALOG_PAGE_ROUTE } from "../../utils/ consts";
 
 const WelcomeMessage: FC = () => {
+  const navigate = useNavigate();
   return (
     <div className={style.fullwidth}>
       <div className={style.container}>
@@ -32,6 +35,7 @@ const WelcomeMessage: FC = () => {
             backgroundColor="var(--button-red-color)"
             textColor="var(--light-text-color)"
             width="50%"
+            onClick={() => navigate(CATALOG_PAGE_ROUTE)}
           />
         </div>
       </div>

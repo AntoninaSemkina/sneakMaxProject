@@ -39,7 +39,9 @@ const QuestionBlock: React.FC<MainBlockProps> = ({ questions }) => {
       {questions.map((item, index) => (
         <div key={index} className={style.block}>
           <div className={style.info}>
-            <span>{item.question}</span>
+            <span onClick={() => toggleDescription(index)}>
+              {item.question}
+            </span>
             <button
               className={style.btn}
               onClick={() => toggleDescription(index)}
