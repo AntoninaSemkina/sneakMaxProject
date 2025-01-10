@@ -14,7 +14,7 @@ interface FilterProps {
   onResetFilters: () => void;
 }
 
-const Filter: FC<FilterProps> = ({ onApplyFilters, onResetFilters }) => {
+const FilterContent: FC<FilterProps> = ({ onApplyFilters, onResetFilters }) => {
   const [globalMinPrice, setGlobalMinPrice] = useState<number>(0);
   const [globalMaxPrice, setGlobalMaxPrice] = useState<number>(100);
 
@@ -136,4 +136,4 @@ const Filter: FC<FilterProps> = ({ onApplyFilters, onResetFilters }) => {
   );
 };
 
-export default Filter;
+export default FilterContent;
