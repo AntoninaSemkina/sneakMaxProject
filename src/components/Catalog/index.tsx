@@ -2,7 +2,6 @@ import { FC, useState } from "react";
 import style from "./style.module.css";
 import Products from "../products";
 import Filter from "../Filter/filter";
-import FilterContent from "../Filter";
 
 type Filters = {
   gender: string[];
@@ -22,7 +21,6 @@ const Catalog: FC = () => {
       max: Infinity,
     },
   });
-
   const applyFilters = (newFilters: Filters) => {
     setFilters(newFilters);
   };
@@ -45,7 +43,7 @@ const Catalog: FC = () => {
           <h1>Каталог</h1>
         </div>
         <div className={style.mainBlock}>
-          <Filter />
+          <Filter onApplyFilters={applyFilters} onResetFilters={resetFilters} />
           <Products filters={filters} onResetFilters={resetFilters} />
         </div>
       </div>
